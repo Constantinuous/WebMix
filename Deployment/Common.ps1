@@ -33,7 +33,7 @@ function GetMsDeploy
 
 function GetMsBuild
 {
-	$msBuild = "C:\Program Files` (x86)\MSBuild\14.0\Bin\MSBuild.exe"
+	$msBuild = $env:systemroot + "\..\Program Files` (x86)\MSBuild\14.0\Bin\MSBuild.exe"
 	return $msBuild
 }
 

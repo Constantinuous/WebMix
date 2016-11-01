@@ -5,44 +5,49 @@ param(
 	[string]$vsToolVersion = "VisualStudioVersion=14.0"
 );
 
-. .\Common.ps1
-$msBuild = GetMsBuild
-
-function main
+          
+process            
 {
-	EnforcePreConditions
-	CreatePackages
-}
+	function main
+	{
+		EnforcePreConditions
+		CreatePackages
+	}
 
-function EnforcePreConditions
-{
-	EnforceIsAdministrator
+	function EnforcePreConditions
+	{
+		EnforceIsAdministrator
 
-	printHeader "MsBuild"
+		printHeader "MsBuild"
 	
-	EnforceExeExists $msBuild -missingMessage "Please install msbuild"
-	EnforceExeExists "nuget" -missingMessage "- Please install nuget via: choco install nuget.commandline"
+		EnforceExeExists $msBuild -missingMessage "Please install msbuild"
+		EnforceExeExists "nuget" -missingMessage "- Please install nuget via: choco install nuget.commandline"
 
-	. $msbuild /version
-	""
-}
+		. $msbuild /version
+		""
+	}
 
-function CreatePackages
-{
-	printHeader "Create Packages"
+	function CreatePackages
+	{
+		printHeader "Create Packages"
 
-	$publishArgument = "/p:DeployOnBuild=true;PublishProfile=$publishProfile;$vsToolVersion "
-	$OutputVariable = & $msBuild $solution $publishArgument
-	$obj = New-Object PSObject
+		$publishArgument = "/p:DeployOnBuild=true;PublishProfile=$publishProfile;$vsToolVersion "
+		$OutputVariable = & $msBuild $solution $publishArgument
+		$obj = New-Object PSObject
    
-	if($LastExitCode -eq 0)
-	{
-		"No Errors when packaging"
+		if($LastExitCode -eq 0)
+		{
+			"No Errors when packaging"
+		}
+		else
+		{
+			"Error when packaging"
+		}
 	}
-	else
-	{
-		"Error when packaging"
-	}
+	
+
+	. .\Common.ps1
+	$msBuild = GetMsBuild
+	main
 }
 
-main
