@@ -1,18 +1,48 @@
-﻿. .\Common.ps1
+﻿#!powershell
+param(
+	[string]$publishProfile = "Package",
+	[string]$solution = "..\AspMix.sln",
+	[string]$vsToolVersion = "VisualStudioVersion=14.0"
+);
+
+. .\Common.ps1
+$msBuild = GetMsBuild
 
 function main
 {
-	EnsureIsAdministrator
+	EnforcePreConditions
+	CreatePackages
+}
+
+function EnforcePreConditions
+{
+	EnforceIsAdministrator
 
 	printHeader "MsBuild"
-	$msBuild = GetMsBuild
-
-	EnsureExeExists $msBuild -missingMessage "Please install msbuild"
-	EnsureExeExists "nuget" -missingMessage "- Please install nuget via: choco install nuget.commandline"
+	
+	EnforceExeExists $msBuild -missingMessage "Please install msbuild"
+	EnforceExeExists "nuget" -missingMessage "- Please install nuget via: choco install nuget.commandline"
 
 	. $msbuild /version
 	""
-	printHeader "Start"
+}
+
+function CreatePackages
+{
+	printHeader "Create Packages"
+
+	$publishArgument = "/p:DeployOnBuild=true;PublishProfile=$publishProfile;$vsToolVersion "
+	$OutputVariable = & $msBuild $solution $publishArgument
+	$obj = New-Object PSObject
+   
+	if($LastExitCode -eq 0)
+	{
+		"No Errors when packaging"
+	}
+	else
+	{
+		"Error when packaging"
+	}
 }
 
 main

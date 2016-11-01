@@ -1,3 +1,9 @@
 .vs/
 packages/
 WebDeploy/
+SubSites/SubMix/bin/
+AspMix.Tests/bin/
+AspMix.Tests/obj/
+AspMix/bin/
+AspMix/obj/
+SubSites/SubMix/obj/

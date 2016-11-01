@@ -1,4 +1,4 @@
-﻿function EnsureIsAdministrator  
+﻿function EnforceIsAdministrator  
 {
 	if(!(IsAdministrator))
 	{
@@ -15,7 +15,7 @@ function IsAdministrator
     return (New-Object Security.Principal.WindowsPrincipal $user).IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator)
 }
 
-function EnsureExeExists($exe, $missingMessage)
+function EnforceExeExists($exe, $missingMessage)
 {
 	if ((Get-Command $exe -ErrorAction SilentlyContinue) -eq $null) 
 	{ 
