@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<MsDeploy.Application>
+  <appHostConfig path="MySite" />
+  <dirPath path="C:\inetpub\MySite" />
+  <appPoolConfig path="MySitePool" />
+</MsDeploy.Application>

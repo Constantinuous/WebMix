@@ -1,5 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <parameters>
+  
+  <parameter name="dbUsername" defaultValue="appUser" tags="MySQL">
+    <parameterEntry type="TextFile" scope="install.sql" match="PlaceholderForDbUsername" />
+  </parameter>
+  
+  
   <!-- Setting output VM: 
            IMPORTANT: This Param only kicks when:
            + deploying from VS2010 
@@ -13,6 +19,7 @@
     defaultValue="WebMix"
     >
   </parameter>
+  
   <parameter name="Root VirtualDirectory Path"
              description="Physical path where files for this Web application will be deployed."
              defaultValue="C:\DMC\WebMix"

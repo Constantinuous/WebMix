@@ -27,7 +27,7 @@ function EnforceExeExists($exe, $missingMessage)
 
 function GetMsDeploy
 {
-	$msdeploy = "C:\Program Files (x86)\IIS\Microsoft Web Deploy V3\msdeploy.exe"
+	$msdeploy = $env:systemroot + "\..\Program Files` (x86)\IIS\Microsoft Web Deploy V3\msdeploy.exe"
 	return $msdeploy
 }
 
@@ -46,7 +46,7 @@ function printHeader($headerName)
 
 function printSubHeader($headerName)
 {
-	"----------------------------------------------------------------------------"
-	"   $headername   "
+	""
+	"$headername   "
 	"----------------------------------------------------------------------------"
 }

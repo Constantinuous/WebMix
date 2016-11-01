@@ -1,5 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <parameters>
-  
+  <parameter
+    name="AppPath"
+    friendlyName="IIS Application Site Path"
+    description="Full site path where you want to install your application (for example, Default Web Site/Application)."
+    tags="iisApp"
+    defaultValue="WebMix/SubMix"
+    >
+  </parameter>  
 
 </parameters>
