@@ -2,7 +2,9 @@
 param(
 	[string]$publishProfile = "Package",
 	[string]$solution = "..\AspMix.sln",
-	[string]$vsToolVersion = "VisualStudioVersion=14.0"
+	[string]$vsToolVersion = "VisualStudioVersion=14.0",
+	[ValidateNotNullOrEmpty()]             
+    [string] $BuildLogFile = "..\Package.log"
 );
 
           
@@ -32,22 +34,36 @@ process
 		printHeader "Create Packages"
 
 		$publishArgument = "/p:DeployOnBuild=true;PublishProfile=$publishProfile;$vsToolVersion "
-		$OutputVariable = & $msBuild $solution $publishArgument
-		$obj = New-Object PSObject
+
+		$BuildArgs = @{            
+            FilePath = $msBuild            
+            ArgumentList = $solution, $publishArgument, "/v:minimal"            
+            RedirectStandardOutput = $BuildLogFile            
+            Wait = $true  
+			PassThru = $true          
+            WindowStyle = "Hidden"            
+        }            
+            
+        # Start the build            
+        $process = Start-Process @BuildArgs
    
-		if($LastExitCode -eq 0)
+		if($process.ExitCode -eq 0)
 		{
 			"No Errors when packaging"
 		}
 		else
 		{
-			"Error when packaging"
+			"Error when packaging, ErrorCode is: "+$process.ExitCode
 		}
 	}
 	
-
+	# Imports
 	. .\Common.ps1
+
+	# Global Variables 
 	$msBuild = GetMsBuild
+
+	# Execute Main
 	main
 }
 
