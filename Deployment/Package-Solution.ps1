@@ -1,13 +1,15 @@
 ﻿#!powershell
+[CmdletBinding()]
 param(
 	[string]$publishProfile = "Package",
 	[string]$solution = "..\AspMix.sln",
 	[string]$vsToolVersion = "VisualStudioVersion=14.0",
 	[ValidateNotNullOrEmpty()]             
-    [string] $BuildLogFile = "..\Package.log"
+    [string] $BuildLogFile = "..\Package-Solution.log",
+	[ValidateNotNullOrEmpty()]             
+    [string] $BuildErrorLogFile = "..\Package-Solution-Error.log"
 );
 
-          
 process            
 {
 	function main
@@ -38,7 +40,8 @@ process
 		$BuildArgs = @{            
             FilePath = $msBuild            
             ArgumentList = $solution, $publishArgument, "/v:minimal"            
-            RedirectStandardOutput = $BuildLogFile            
+            RedirectStandardOutput = $BuildLogFile    
+			RedirectStandardError = $BuildErrorLogFile           
             Wait = $true  
 			PassThru = $true          
             WindowStyle = "Hidden"            

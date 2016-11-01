@@ -1,7 +1,11 @@
 ﻿#!powershell
+[CmdletBinding()]
 param(
 	[ValidateNotNullOrEmpty()]             
-    [string] $DeployLogFile = "..\Deploy-Packages.log"
+    [string] $DeployLogFile = "..\Deploy-Packages.log",
+
+	[ValidateNotNullOrEmpty()]             
+    [string] $DeployErrorLogFile = "..\Deploy-Packages-Error.log"
 );
 
           
@@ -36,11 +40,21 @@ process
 		printSubHeader "Deploying $destinationApp"
 		# $param = -setParam:name="IIS Web Application Name",value="site name"
 		$sourcePackage = resolve-path $sourcePackage
+
+		$arguments = @"
+			-verb:sync 
+			-source:package='$sourcePackage' 
+			-dest:auto 
+			-setParam:'AppPath'='$destinationApp'
+			-setParam:DatabaseUsername='Foobar'
+			-allowUntrusted=true
+"@
 		
 		$BuildArgs = @{            
             FilePath = $msdeploy            
-            ArgumentList = "-verb:sync -source:package='$sourcePackage' -dest:auto -setParam:name='AppPath',value='$destinationApp'"
-			RedirectStandardOutput = $DeployLogFile          
+            ArgumentList = $arguments
+			RedirectStandardOutput = $DeployLogFile       
+			RedirectStandardError = $DeployErrorLogFile   
             Wait = $true  
 			PassThru = $true          
             WindowStyle = "Hidden"            
@@ -52,13 +66,15 @@ process
 		if($process.ExitCode -eq 0)
 		{
 			"No Errors when deploying"
+			Get-Content $DeployLogFile | select -Last 3
 		}
 		else
 		{
 			"Error when deploying, ErrorCode is: "+$process.ExitCode
+			Get-Content $DeployErrorLogFile | select -Last 3
 		}
 
-		. $msdeploy -verb:sync -source:package=$sourcePackage -dest:auto -setParam:name='AppPath',value=$destinationApp
+		#. $msdeploy -verb:sync -source:package=$sourcePackage -dest:auto -setParam:name='AppPath',value=$destinationApp
 	}
 
 	

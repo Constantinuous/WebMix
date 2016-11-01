@@ -188,9 +188,9 @@
     <Content Include="Content\Site.css" />
     <Content Include="install.sql" />
     <None Include="Parameters.xml" />
+    <Content Include="manifest.xml" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="WebAppManifest.xml" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="Properties\PublishProfiles\Package.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
