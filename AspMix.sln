@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspMix", "AspMix\AspMix.csproj", "{2A08F8A4-8C82-416A-9410-6672F2F95414}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspMix.Tests", "AspMix.Tests\AspMix.Tests.csproj", "{32A9E48E-21D4-4E15-83CB-63357DDAFF42}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubMix", "SubSites\SubMix\SubMix.csproj", "{95A637FA-7009-4E4C-8080-3F1FE1E18CB2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2A08F8A4-8C82-416A-9410-6672F2F95414}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A08F8A4-8C82-416A-9410-6672F2F95414}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A08F8A4-8C82-416A-9410-6672F2F95414}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A08F8A4-8C82-416A-9410-6672F2F95414}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32A9E48E-21D4-4E15-83CB-63357DDAFF42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32A9E48E-21D4-4E15-83CB-63357DDAFF42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32A9E48E-21D4-4E15-83CB-63357DDAFF42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32A9E48E-21D4-4E15-83CB-63357DDAFF42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95A637FA-7009-4E4C-8080-3F1FE1E18CB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95A637FA-7009-4E4C-8080-3F1FE1E18CB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95A637FA-7009-4E4C-8080-3F1FE1E18CB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95A637FA-7009-4E4C-8080-3F1FE1E18CB2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

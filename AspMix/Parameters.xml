@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<parameters>
+  <!-- Setting output VM: 
+           IMPORTANT: This Param only kicks when:
+           + deploying from VS2010 
+           + package was built 'with IIS settings' 
+           or there is no param to replace, hence doesn't get set -->
+  <parameter
+    name="AppPath"
+    friendlyName="IIS Application Site Path"
+    description="Full site path where you want to install your application (for example, Default Web Site/Application)."
+    tags="iisApp"
+    defaultValue="WebMix"
+    >
+  </parameter>
+  <parameter name="Root VirtualDirectory Path"
+             description="Physical path where files for this Web application will be deployed."
+             defaultValue="C:\DMC\WebMix"
+             tags="DestinationVirtualDirectory">
+    <parameterEntry kind="DestinationVirtualDirectory"
+                    scope="/"  />
+  </parameter>
+  
+    <parameter name="Site-http" description="Http binding for Site" defaultValue="17000">
+    <parameterEntry kind="DestinationBinding" scope="Site" match=":17000:" />
+  </parameter>
+
+  </parameters>
