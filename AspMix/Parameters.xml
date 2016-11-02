@@ -12,18 +12,24 @@
   <parameter
    name="DatabaseUsername"
    description="User name to access you application database."
-   defaultValue="Foo"
+   defaultValue="Fooobar"
    tags="SQL, DbUsername">
     <parameterEntry kind="TextFile" scope="install.sql" match="PlaceHolderForUser" />
-    <parameterEntry
-       kind="TextFilePosition"
-       scope="install.sql"
-       match="1;5;11" />
-    <parameterEntry type="TextFile" scope="install.sql" match="PlaceHolderForUser" />
-    <parameterEntry
-       type="TextFilePosition"
-       scope="install.sql"
-       match="1;5;11" />
+  </parameter>
+  
+  <parameter
+   name="DatabasePassword"
+   description="Password to access you application database."
+   defaultValue="Fooobar"
+   tags="SQL, DbPassword">
+    <parameterEntry kind="TextFile" scope="install.sql" match="PlaceHolderForPassword" />
+  </parameter>
+
+  <parameter
+   name="BaseUrl"
+   description="The Base Url of your site."
+   defaultValue="Fooobar">
+    <parameterEntry kind="TextFile" scope="web.config" match="PlaceHolderForBaseUrl" />
   </parameter>
 
 

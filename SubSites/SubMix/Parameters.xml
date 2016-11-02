@@ -1,6 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <parameters>
   <parameter
+   name="DatabaseUsername"
+   description="User name to access you application database."
+   defaultValue="Foo"
+   tags="SQL, DbUsername">
+    <parameterEntry kind="TextFile" scope="install.sql" match="PlaceHolderForUser" />
+    <parameterEntry
+       kind="TextFilePosition"
+       scope="install.sql"
+       match="1;5;11" />
+    <parameterEntry type="TextFile" scope="install.sql" match="PlaceHolderForUser" />
+    <parameterEntry
+       type="TextFilePosition"
+       scope="install.sql"
+       match="1;5;11" />
+  </parameter>
+  
+  <parameter
     name="AppPath"
     friendlyName="IIS Application Site Path"
     description="Full site path where you want to install your application (for example, Default Web Site/Application)."

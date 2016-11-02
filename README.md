@@ -25,3 +25,5 @@ A project to test out some Web Deploy Features.
 * [Web Deploy Parameterization in Action](http://vishaljoshi.blogspot.de/2010/07/web-deploy-parameterization-in-action.html)
 * [HowTo:Create a Publish Profile/Parameters.xml](http://skysigal.com/it/ad/webdeploy/howto/create_a_publish_profile/parameters.xml)
 * [Web Publish Samples](https://github.com/sayedihashimi/publish-samples)
+* [ParameterKindSettings](https://technet.microsoft.com/en-us/library/dd569084(WS.10).aspx#BKMK_ParameterKindSettings)
+* [How to: Use Parameters to Configure Deployment Settings When a Package is Installed](https://msdn.microsoft.com/en-us/library/ff398068(v=VS.100).aspx)

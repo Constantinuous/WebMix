@@ -20,6 +20,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Deployment", "Deployment", 
 		Deployment\Deploy-Packages.ps1 = Deployment\Deploy-Packages.ps1
 		Deployment\MsBuildHelpers.ps1 = Deployment\MsBuildHelpers.ps1
 		Deployment\Package-Solution.ps1 = Deployment\Package-Solution.ps1
+		Deployment\SetParameters.xml = Deployment\SetParameters.xml
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{194E17EB-F631-44B3-B39A-4EC6CC6CC2A6}"
