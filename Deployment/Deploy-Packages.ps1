@@ -42,42 +42,20 @@ process
 		$sourcePackage = resolve-path $sourcePackage
 		$setParameters = resolve-path "SetParameters.xml"
 
-		$parameters = "DatabaseUsername='Foobar','CoolValue'='VeryHot'"
-
-		$arguments = @"
-			-verb:sync 
-			-source:package='$sourcePackage' 
-			-dest:auto 
-			-allowUntrusted:true
-			-enableRule:DoNotDeleteRule
-"@
-		#     -setParamFile:"package.SetParameters.xml"
-		
-		$BuildArgs = @{            
-            FilePath = $msdeploy            
-            ArgumentList = $arguments
-			RedirectStandardOutput = $DeployLogFile       
-			RedirectStandardError = $DeployErrorLogFile   
-            Wait = $true  
-			PassThru = $true          
-            WindowStyle = "Hidden"            
-        }            
+		"Parameter File is at: $setParameters"
+   
             
-        # Start the deployment
-		$process = Start-Process @BuildArgs
-
-		if($process.ExitCode -eq 0)
+		 $output = & $msdeploy -verb:sync -source:package=$source -dest:auto -setParamFile:"$SetParams" -enableRule:DoNotDeleteRule *>>$DeployLogFile
+		
+		Get-Content $DeployLogFile | select -Last 3
+		if($LASTEXITCODE -eq 0)
 		{
-			Get-Content $DeployLogFile | select -Last 3
 			"  [OK]  "
 		}
 		else
 		{
-			Get-Content $DeployErrorLogFile | select -Last 3
-			"  [FAIL] with Error Code: "+$process.ExitCode
+			"  [FAIL] with Error Code: "+$LASTEXITCODE
 		}
-
-		#. $msdeploy -verb:sync -source:package=$sourcePackage -dest:auto -setParam:name='AppPath',value=$destinationApp
 	}
 
 	

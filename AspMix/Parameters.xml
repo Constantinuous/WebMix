@@ -12,7 +12,6 @@
   <parameter
    name="DatabaseUsername"
    description="User name to access you application database."
-   defaultValue="Fooobar"
    tags="SQL, DbUsername">
     <parameterEntry kind="TextFile" scope="install.sql" match="PlaceHolderForUser" />
   </parameter>
@@ -27,8 +26,7 @@
 
   <parameter
    name="BaseUrl"
-   description="The Base Url of your site."
-   defaultValue="Fooobar">
+   description="The Base Url of your site.">
     <parameterEntry kind="TextFile" scope="web.config" match="PlaceHolderForBaseUrl" />
   </parameter>
 
