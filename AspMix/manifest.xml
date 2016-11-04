@@ -2,4 +2,5 @@
 <msdeploy.iisApp>
   <iisApp path="WebMix" />
   <dbFullSql path="install.sql" />
+  <runCommand path="echo foo > bar.txt" waitInterval="1000"/>
 </msdeploy.iisApp>

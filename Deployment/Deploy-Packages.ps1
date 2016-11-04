@@ -35,6 +35,11 @@ process
 		DeployPackage -sourcePackage "..\WebDeploy\SubMix.zip" -destinationApp "WebMix/SubMix"
 	}
 
+	function GetParameters($sourcePackage)
+	{
+		$output = & $msdeploy -verb:getparameters -source:package=$source
+	}
+
 	function DeployPackage($sourcePackage, $destinationApp)
 	{
 		printSubHeader "Deploying $destinationApp"

@@ -27,3 +27,5 @@ A project to test out some Web Deploy Features.
 * [Web Publish Samples](https://github.com/sayedihashimi/publish-samples)
 * [ParameterKindSettings](https://technet.microsoft.com/en-us/library/dd569084(WS.10).aspx#BKMK_ParameterKindSettings)
 * [How to: Use Parameters to Configure Deployment Settings When a Package is Installed](https://msdn.microsoft.com/en-us/library/ff398068(v=VS.100).aspx)
+* [Auto deploy a website to a clean IIS](http://www.ronaldrosier.net/Blog/2013/05/09/auto_deploy_a_website_to_a_clean_iis)
+* [Deploying web applications to multiple environments using Microsoft Web Deploy](https://philippetruche.wordpress.com/2012/07/11/deploying-web-applications-to-multiple-environments-using-microsoft-web-deploy/)
